@@ -58,3 +58,15 @@ cat <<EOF
 EOF
 
 echo "[setup-mac] Done."
+
+########################################
+# ForkLift
+########################################
+FORKLIFT_PLIST_NAME="com.binarynights.forklift-setapp.plist"
+FORKLIFT_PLIST_SRC="$REPO_ROOT/config/ForkLift/$FORKLIFT_PLIST_NAME"
+FORKLIFT_PLIST_DST="$HOME/Library/Preferences/$FORKLIFT_PLIST_NAME"
+
+if [ -f "$FORKLIFT_PLIST_SRC" ]; then
+  echo "Restoring ForkLift preferences..."
+  cp "$FORKLIFT_PLIST_SRC" "$FORKLIFT_PLIST_DST"
+fi
