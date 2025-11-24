@@ -115,6 +115,44 @@ Rules
 
 ---
 
+### 03 Cloud & Remote
+
+Slots (max 6)
+
+- C1 **iCloud Drive**   → `~/Library/Mobile Documents/com~apple~CloudDocs` (Blue)
+- C2 **Dropbox**        → `~/Dropbox`                                (Green)
+- C3 **Git mirrors**    → `~/dev/_mirrors` (optional, Gray)
+- C4 **Prod – main**    → SFTP prod server (Red, later)
+- C5 **Stage – sandbox**→ SFTP staging server (Orange, later)
+- C6 **Utility server** → 기타 SFTP/NAS 등 (Yellow, later)
+
+Rules
+
+- C1–C2: 로컬에 sync된 클라우드 스토리지 루트만 올린다.
+- C3: git bare repo / mirror 저장소용 (필요할 때만 사용).
+- C4–C6: 실제 원격 서버. 서버 정보가 생기기 전에는 슬롯만 예약해 두고 즐겨찾기는 만들지 않는다.
+- Color conventions:
+  - Blue/Green = 클라우드 스토리지
+  - Red = Prod (주의)
+  - Orange = Stage/Test
+  - Yellow = Utility/기타
+
+  ForkLift 설정은 `~/Library/Preferences/<FORKLIFT_PLIST_NAME>` 파일로 백업/복원한다.
+...
+예: `~/Library/Preferences//Applications/Visual Studio Code.app`
+
+- ForkLift (Setapp) 설정 복원  
+  - `config/ForkLift/com.binarynights.forklift-setapp.plist` 가 존재할 경우에만 동작  
+  - 해당 파일을 `~/Library/Preferences/com.binarynights.forklift-setapp.plist` 로 복사해 사이드바 / 즐겨찾기 레이아웃을 복원
+
+### setup-mac.sh가 자동으로 해주는 것
+
+- Homebrew 설치 (없을 경우)
+- Brewfile 기반 brew/mas 앱 설치
+- ForkLift (Setapp) 설정 복원  
+  - `config/ForkLift/com.binarynights.forklift-setapp.plist` 가 존재할 경우에만 동작  
+  - 해당 파일을 `~/Library/Preferences/com.binarynights.forklift-setapp.plist` 로 복사해 사이드바 / 즐겨찾기 레이아웃을 복원
+
 ### 운영 메모
 
 - ForkLift 설정은 `~/Library/Preferences/com.binarynights.ForkLift4.plist` 파일로 백업/복원한다.
